@@ -1,5 +1,4 @@
-// src/components/Charts.jsx
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -23,8 +22,6 @@ ChartJS.register(
 );
 
 const Charts = () => {
-  const chartRef = useRef(null);
-
   const data = {
     labels: ["10:00", "11:00", "12:00", "13:00", "14:00", "15:00"],
     datasets: [
@@ -47,15 +44,10 @@ const Charts = () => {
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: { labels: { color: "#fff" } },
-      title: {
-        display: false,
-      },
-      tooltip: {
-        mode: "index",
-        intersect: false,
-      },
+      tooltip: { mode: "index", intersect: false },
     },
     scales: {
       x: { ticks: { color: "#fff" } },
@@ -63,16 +55,11 @@ const Charts = () => {
     },
   };
 
-  useEffect(() => {
-    return () => {
-      // Cleanup chart to prevent "canvas already in use" error
-      if (chartRef.current) {
-        chartRef.current.destroy();
-      }
-    };
-  }, []);
-
-  return <Line ref={chartRef} data={data} options={options} />;
+  return (
+    <div style={{ width: "100%", height: "100%" }}>
+      <Line data={data} options={options} />
+    </div>
+  );
 };
 
 export default Charts;

@@ -1,76 +1,64 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
-  color: #fff;
+  background-color: #fdeef4; /* pale pink background */
+  color: #111827;
 }
 
-.app-container {
-  padding: 20px;
-  text-align: center;
-}
-
-.app-title {
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
+/* Dashboard container */
 .dashboard-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, auto);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
-  padding: 20px;
 }
 
+/* Card style */
 .dashboard-card {
-  border-radius: 16px;
-  padding: 20px;
-  min-height: 250px;
+  border-radius: 12px; /* slightly curved corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   color: #fff;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-  background: linear-gradient(135deg, #ff512f, #dd2476);
   display: flex;
   flex-direction: column;
+  justify-content: center; /* vertical center */
+  padding: 20px;
+  min-height: 300px; /* keep original container height */
 }
 
-.dashboard-card h3 {
-  margin-bottom: 10px;
+/* Card headings */
+.dashboard-card h5 {
+  margin-bottom: 16px;
+  font-size: 1.5rem; /* bigger heading */
+  text-align: center;
+  color: #fff; /* keep heading white */
 }
 
-.active-alert {
-  padding: 8px;
-  margin-bottom: 5px;
-  border-radius: 8px;
+/* Alerts inside card */
+.alert-box {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  font-weight: bold;
   color: #fff;
 }
 
-.low { background-color: #28a745; }
-.medium { background-color: #ffc107; }
-.high { background-color: #dc3545; }
+/* Buttons inside floor map */
+.room-button {
+  font-size: 12px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  transition: background 0.2s;
+}
 
-.chart-container {
+.room-button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Chart wrapper inside card */
+.chart-wrapper {
   flex: 1;
-}
-.chart-stats {
-  margin-left: 20px;
-  text-align: left;
-}
-.floor-map button {
-  margin: 5px;
-  padding: 8px;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-}
-.room {
-  margin: 3px;
-  padding: 5px;
-  border-radius: 4px;
-  cursor: pointer;
-  display: inline-block;
-  min-width: 60px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
